@@ -17,7 +17,7 @@
             <TextBlock Text="Shift:" />
             <TextBox x:Name="ShiftTextBox" Text="1" Width="50" />
             <Button x:Name="EncryptButton" Content="Encrypt" Click="EncryptButton_Click" />
-            <Button x:Name="DecryptButton" Content="Decrypt" />
+            <Button x:Name="DecryptButton" Content="Decrypt" Click="DecryptButton_Click" />
         </StackPanel>
         <TextBox Grid.Row="2" x:Name="EncryptedTextTextBox" />
     </Grid>

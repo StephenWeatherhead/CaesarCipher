@@ -34,6 +34,15 @@ namespace CaesarCipher
             return GetLetter(number);
         }
 
+        private static char Decrypt(int shift, char character)
+        {
+            int number = GetNumber(character);
+            if (number == -1)
+                return character;
+            number = (number - shift) % 26;
+            return GetLetter(number);
+        }
+
         private static char GetLetter(int number)
         {
             return "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[number];
@@ -52,6 +61,16 @@ namespace CaesarCipher
             foreach(char letter in PlainTextTextBox.Text)
             {
                 EncryptedTextTextBox.AppendText(Encrypt(shift,letter).ToString());
+            }
+        }
+
+        private void DecryptButton_Click(object sender, RoutedEventArgs e)
+        {
+            EncryptedTextTextBox.Clear();
+            int shift = int.Parse(ShiftTextBox.Text);
+            foreach (char letter in PlainTextTextBox.Text)
+            {
+                EncryptedTextTextBox.AppendText(Decrypt(shift, letter).ToString());
             }
         }
     }
