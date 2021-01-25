@@ -31,6 +31,10 @@ namespace CaesarCipher
             if (number == -1)
                 return character;
             number = (number + shift) % 26;
+            if (number < 0)
+                number += 26;
+            else if (number > 25)
+                number -= 26;
             return GetLetter(number);
         }
 
@@ -40,6 +44,10 @@ namespace CaesarCipher
             if (number == -1)
                 return character;
             number = (number - shift) % 26;
+            if (number < 0)
+                number += 26;
+            else if (number > 25)
+                number -= 26;
             return GetLetter(number);
         }
 
